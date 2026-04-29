@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Glow-Up Diet Guide 🌸</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600;700;800&family=Dancing+Script:wght@600;700&display=swap');
+
+:root{
+  --rose:#e8829a;--rose-d:#c95a78;--rose-l:#f7b8ca;--blush:#fde8ef;
+  --purple:#a87ec8;--purple-d:#7a50a8;--lav:#ede0f7;
+  --teal:#4db89a;--teal-d:#2d9070;--mint:#d8f4ec;
+  --gold:#d4a840;--lemon:#fef9d0;
+  --apricot:#e8935a;
+  --cream:#fdf7f2;--white:#fffbfd;
+  --ink:#3a1f2e;--ink2:#6b445a;--ink3:#9a7088;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);font-family:'Nunito',sans-serif;color:var(--ink);overflow-x:hidden;}
+
+.hero{background:linear-gradient(145deg,#f7c5d5,#e8a0be 35%,#c87898 70%,#a85878);padding:56px 24px 88px;text-align:center;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:50px;background:var(--cream);clip-path:ellipse(60% 100% at 50% 100%);}
+.hdeco{position:absolute;font-size:5rem;opacity:.13;line-height:1;pointer-events:none;}
+.d1{top:8px;left:12px;transform:rotate(-15deg);font-size:4rem;}
+.d2{top:20px;right:20px;transform:rotate(12deg);font-size:6rem;}
+.d3{bottom:30px;left:30px;transform:rotate(-8deg);font-size:3.5rem;}
+.d4{bottom:20px;right:15px;transform:rotate(20deg);font-size:4.5rem;}
+.hero-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.45);color:#fff;font-family:'Dancing Script',cursive;font-size:1.05rem;padding:5px 20px;border-radius:30px;margin-bottom:20px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,7vw,4rem);color:#fff;line-height:1.12;font-weight:600;}
+.hero h1 em{font-style:italic;color:#ffe4ef;}
+.hero-sub{margin-top:12px;color:rgba(255,255,255,.8);font-size:.92rem;font-weight:300;letter-spacing:.04em;}
+.hero-hearts{display:flex;justify-content:center;gap:8px;margin-top:18px;font-size:1.1rem;}
+
+.aff-banner{background:linear-gradient(135deg,#fde8ef,#ede0f7,#d8f4ec);padding:20px 24px;text-align:center;border-bottom:1.5px solid var(--rose-l);}
+.aff-text{font-family:'Dancing Script',cursive;font-size:clamp(1rem,3vw,1.25rem);color:var(--rose-d);font-weight:700;line-height:1.4;}
+.aff-sub{font-size:.78rem;color:var(--ink3);margin-top:4px;font-weight:500;}
+
+.page{max-width:880px;margin:0 auto;padding:0 18px 80px;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--rose-d);margin:52px 0 18px;display:flex;align-items:center;gap:10px;font-weight:600;}
+.sec-title::after{content:'';flex:1;height:1.5px;background:linear-gradient(to right,var(--rose-l),transparent);border-radius:2px;}
+
+.q-hint{text-align:center;font-family:'Dancing Script',cursive;font-size:1.1rem;color:var(--rose-d);margin-bottom:16px;}
+.q-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.q-btn{background:var(--white);border:2px solid var(--rose-l);border-radius:18px;padding:14px 11px 12px;cursor:pointer;text-align:left;transition:all .28s cubic-bezier(.34,1.56,.64,1);position:relative;outline:none;overflow:hidden;}
+.q-btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 10px 28px rgba(200,120,152,.18);border-color:var(--rose);}
+.q-btn.active{border-color:var(--rose-d);background:var(--blush);transform:translateY(-2px);box-shadow:0 6px 20px rgba(200,120,152,.22);}
+.q-badge{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:10px;font-family:'Dancing Script',cursive;font-size:1.2rem;font-weight:700;margin-bottom:8px;}
+.q-label{font-size:.79rem;color:var(--ink2);line-height:1.4;font-weight:600;}
+.q-caret{position:absolute;top:11px;right:11px;font-size:.75rem;color:var(--rose);transition:transform .32s cubic-bezier(.34,1.56,.64,1);}
+.q-btn.active .q-caret{transform:rotate(180deg);}
+
+.q-panel{overflow:hidden;max-height:0;opacity:0;margin-top:0;transition:max-height .55s cubic-bezier(.4,0,.2,1),opacity .4s ease,margin .3s;}
+.q-panel.open{max-height:2400px;opacity:1;margin-top:12px;}
+.panel-box{border-radius:20px;padding:24px 20px;position:relative;overflow:hidden;border:1.5px solid transparent;}
+.bg-deco{position:absolute;right:-12px;bottom:-12px;font-size:7rem;opacity:.07;line-height:1;pointer-events:none;}
+.panel-heading{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px;}
+.chip{padding:5px 12px;border-radius:30px;font-size:.78rem;font-weight:700;display:flex;align-items:center;gap:5px;}
+.chip.pink{background:#fde8ef;color:#c95a78;border:1.5px solid #f7b8ca;}
+.chip.green{background:#d8f4ec;color:#2d7055;border:1.5px solid #a0ddc8;}
+.chip.red{background:#ffebee;color:#b71c1c;border:1.5px solid #ef9a9a;}
+.chip.lav{background:#ede0f7;color:#6a35a0;border:1.5px solid #c8a8e0;}
+.chip.peach{background:#fde5d0;color:#b05828;border:1.5px solid #f0bea0;}
+.chip.lemon{background:#fef9d0;color:#8a6800;border:1.5px solid #e8d878;}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:12px;}
+@media(max-width:480px){.duo{grid-template-columns:1fr;}}
+.mini-box{border-radius:13px;padding:13px;background:rgba(255,255,255,.7);border:1px solid rgba(0,0,0,.06);}
+.mini-title{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.mini-box ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.mini-box li{font-size:.79rem;color:var(--ink2);padding-left:15px;position:relative;line-height:1.4;}
+.mini-box li::before{content:'✦';position:absolute;left:0;font-size:.6rem;top:2px;}
+.callout{border-radius:13px;padding:13px 15px;font-size:.82rem;line-height:1.65;margin-top:10px;display:flex;gap:9px;align-items:flex-start;}
+.callout.pink{background:#fde8ef;border-left:4px solid var(--rose);color:#8c2a48;}
+.callout.green{background:#d8f4ec;border-left:4px solid var(--teal);color:#1a5540;}
+.callout.lav{background:#ede0f7;border-left:4px solid var(--purple);color:#4a1878;}
+.callout.lemon{background:#fef9d0;border-left:4px solid var(--gold);color:#5a3800;}
+.callout.warn{background:#fff3e0;border-left:4px solid #ff6d00;color:#7a2e00;}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:13px 0;}
+@media(max-width:480px){.compare{grid-template-columns:1fr;}}
+.c-yes{background:#d8f4ec;border:1.5px solid #a0ddc8;border-radius:13px;padding:13px;}
+.c-no{background:#ffebee;border:1.5px solid #ef9a9a;border-radius:13px;padding:13px;}
+.c-yes h4{font-size:.72rem;font-weight:800;text-transform:uppercase;color:#2d7055;letter-spacing:.05em;margin-bottom:8px;}
+.c-no h4{font-size:.72rem;font-weight:800;text-transform:uppercase;color:#b71c1c;letter-spacing:.05em;margin-bottom:8px;}
+.c-yes li,.c-no li{font-size:.79rem;color:var(--ink);display:flex;gap:6px;line-height:1.4;margin-bottom:5px;list-style:none;}
+.pb-item{margin-bottom:11px;}
+.pb-lbl{display:flex;justify-content:space-between;font-size:.79rem;color:var(--ink2);margin-bottom:4px;font-weight:600;}
+.pb-track{height:9px;background:rgba(0,0,0,.07);border-radius:20px;overflow:hidden;}
+.pb-fill{height:100%;border-radius:20px;background:linear-gradient(to right,var(--rose-d),var(--rose-l));transform-origin:left;animation:growB .85s cubic-bezier(.4,0,.2,1) both;animation-play-state:paused;}
+.q-panel.open .pb-fill{animation-play-state:running;}
+@keyframes growB{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+.groc{display:grid;grid-template-columns:repeat(auto-fit,minmax(108px,1fr));gap:9px;margin:13px 0;}
+.g-card{background:rgba(255,255,255,.85);border:1.5px solid var(--rose-l);border-radius:14px;padding:12px 8px;text-align:center;transition:transform .2s;}
+.g-card:hover{transform:translateY(-3px);}
+.g-icon{font-size:1.7rem;display:block;margin-bottom:5px;}
+.g-name{font-size:.75rem;font-weight:700;color:var(--ink);}
+.g-note{font-size:.68rem;color:var(--ink3);margin-top:2px;}
+.powder-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:12px;}
+@media(max-width:480px){.powder-grid{grid-template-columns:1fr;}}
+.powder-card{border-radius:13px;padding:14px;border:1.5px solid transparent;}
+.powder-card.safe{background:#f0fdf7;border-color:#a0ddc8;}
+.powder-card.caution{background:#fff8f0;border-color:#ffcc80;}
+.powder-card.no{background:#fff5f8;border-color:var(--rose-l);}
+.powder-card h4{font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.powder-card.safe h4{color:var(--teal-d);}
+.powder-card.caution h4{color:#e65100;}
+.powder-card.no h4{color:var(--rose-d);}
+.powder-card ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.powder-card li{font-size:.78rem;color:var(--ink2);padding-left:14px;position:relative;line-height:1.45;}
+.powder-card li::before{content:'→';position:absolute;left:0;font-size:.72rem;}
+
+.plate-section{background:linear-gradient(135deg,#fff0f5,#fdf7ff);border-radius:24px;padding:32px 24px 28px;margin-top:52px;border:1.5px solid var(--rose-l);box-shadow:0 6px 32px rgba(200,120,152,.1);}
+.plate-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:var(--rose-d);text-align:center;margin-bottom:4px;}
+.plate-sub{text-align:center;font-family:'Dancing Script',cursive;font-size:1rem;color:var(--ink3);margin-bottom:28px;}
+.plate-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;}
+@media(max-width:560px){.plate-layout{grid-template-columns:1fr;gap:24px;}}
+.pie-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;}
+.pie-container{position:relative;display:inline-flex;align-items:center;justify-content:center;}
+.pie-svg{width:220px;height:220px;filter:drop-shadow(0 8px 24px rgba(180,80,120,.25));overflow:visible;}
+@media(max-width:400px){.pie-svg{width:190px;height:190px;}}
+.pie-outer-ring{position:absolute;inset:-7px;border-radius:50%;border:3px solid var(--rose-l);box-shadow:0 0 0 2px white,0 0 22px rgba(232,130,154,.28);pointer-events:none;}
+.pie-hole{position:absolute;width:78px;height:78px;background:linear-gradient(135deg,#fff8fb,#fff);border-radius:50%;box-shadow:0 3px 16px rgba(200,120,152,.2),0 0 0 3px rgba(255,255,255,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;pointer-events:none;z-index:3;}
+.pie-hole span{font-size:1.6rem;line-height:1;}
+.pie-hole small{font-family:'Dancing Script',cursive;font-size:.65rem;color:var(--rose-d);font-weight:700;}
+.dinner-tag{background:linear-gradient(135deg,var(--rose-d),var(--rose));color:#fff;font-size:.76rem;font-weight:800;padding:7px 20px;border-radius:20px;box-shadow:0 4px 14px rgba(200,120,152,.4);white-space:nowrap;animation:pulse 2.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 4px 14px rgba(200,120,152,.4);}50%{box-shadow:0 6px 24px rgba(200,120,152,.65);}}
+.legend{display:flex;flex-direction:column;gap:11px;}
+.leg-item{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.9);transition:transform .2s;}
+.leg-item:hover{transform:translateX(5px);}
+.leg-swatch{width:16px;height:16px;border-radius:5px;flex-shrink:0;}
+.leg-name{font-size:.84rem;color:var(--ink2);font-weight:700;flex:1;}
+.leg-sub{font-size:.67rem;color:var(--ink3);display:block;font-weight:400;margin-top:1px;}
+.leg-pct{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;}
+.bm-note{margin-top:18px;background:linear-gradient(135deg,#d8f4ec,#eaf8f2);border-radius:13px;padding:11px 15px;font-size:.82rem;color:var(--teal-d);display:flex;gap:8px;align-items:center;font-weight:700;border:1px solid #a0ddc8;}
+.plate-rules{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;}
+.rule-card{background:rgba(255,255,255,.8);border-radius:13px;padding:12px 14px;display:flex;gap:9px;align-items:flex-start;border:1px solid var(--blush);}
+.rule-icon{font-size:1.2rem;flex-shrink:0;margin-top:1px;}
+.rule-text{font-size:.78rem;color:var(--ink2);line-height:1.45;font-weight:600;}
+
+.seeds-wrap{background:linear-gradient(145deg,#3a1840,#6b3065,#9a5088);border-radius:24px;padding:30px 24px;margin-top:48px;position:relative;overflow:hidden;}
+.seeds-wrap::before{content:'🌸';position:absolute;right:-15px;bottom:-15px;font-size:10rem;opacity:.09;line-height:1;}
+.seeds-wrap .sec-title{color:#f7c8e0;margin-top:0;}
+.seeds-wrap .sec-title::after{background:linear-gradient(to right,rgba(247,200,224,.3),transparent);}
+.seed-pills{display:flex;flex-wrap:wrap;gap:9px;}
+.s-pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 15px;border-radius:30px;font-size:.82rem;display:flex;align-items:center;gap:7px;font-weight:600;transition:background .2s,transform .2s;cursor:default;}
+.s-pill:hover{background:rgba(255,255,255,.22);transform:translateY(-2px);}
+
+.no-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:10px;}
+.no-card{background:#fff5f8;border:1.5px solid var(--rose-l);border-radius:14px;padding:13px;display:flex;align-items:center;gap:10px;position:relative;overflow:hidden;transition:transform .2s;}
+.no-card:hover{transform:translateY(-2px);}
+.no-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,var(--rose-d),var(--rose));border-radius:4px 0 0 4px;}
+.no-e{font-size:1.45rem;}
+.no-t{font-size:.81rem;font-weight:700;color:var(--ink);line-height:1.3;}
+.no-s{font-size:.7rem;color:var(--rose-d);margin-top:2px;}
+
+.aff-block{background:linear-gradient(145deg,#3a1840,#6b3065,#9a5088);border-radius:24px;padding:32px 24px;margin-top:50px;position:relative;overflow:hidden;text-align:center;}
+.aff-block::before{content:'🌸';position:absolute;left:-10px;bottom:-10px;font-size:9rem;opacity:.08;line-height:1;pointer-events:none;}
+.aff-block::after{content:'✨';position:absolute;right:-10px;top:-10px;font-size:8rem;opacity:.08;line-height:1;pointer-events:none;}
+.aff-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:#f7c8e0;margin-bottom:6px;}
+.aff-subtitle{font-family:'Dancing Script',cursive;font-size:.95rem;color:rgba(255,255,255,.6);margin-bottom:24px;}
+.aff-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;text-align:left;}
+.aff-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:16px 14px;display:flex;gap:10px;align-items:flex-start;transition:background .2s,transform .2s;}
+.aff-card:hover{background:rgba(255,255,255,.18);transform:translateY(-2px);}
+.aff-emoji{font-size:1.4rem;flex-shrink:0;}
+.aff-msg{font-family:'Dancing Script',cursive;font-size:.95rem;color:#fff;font-weight:700;line-height:1.4;}
+.aff-note{font-family:'Nunito',sans-serif;font-size:.7rem;color:rgba(255,255,255,.55);margin-top:3px;font-weight:600;}
+
+.cute-strip{background:linear-gradient(135deg,var(--blush),#f8e8ff);border-radius:14px;padding:12px 16px;margin:14px 0;display:flex;align-items:center;gap:10px;border:1.5px dashed var(--rose-l);}
+.cute-strip-text{font-family:'Dancing Script',cursive;font-size:.95rem;color:var(--rose-d);font-weight:700;line-height:1.4;}
+
+.quote-float{background:linear-gradient(135deg,#fff0f5,#fdf4ff);border:1.5px solid var(--rose-l);border-radius:18px;padding:18px 20px;margin:28px 0;display:flex;align-items:center;gap:14px;box-shadow:0 4px 20px rgba(200,120,152,.1);position:relative;overflow:hidden;}
+.quote-float::before{content:'"';position:absolute;top:-10px;left:10px;font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--rose-l);line-height:1;pointer-events:none;}
+.quote-float.teal{background:linear-gradient(135deg,#f0fdf7,#e8f8f2);border-color:#a0ddc8;}
+.quote-float.teal::before{color:#c0ecd8;}
+.quote-float.purple{background:linear-gradient(135deg,#f8f0ff,#f2ebff);border-color:#d0b8e8;}
+.quote-float.purple::before{color:#ddc8f0;}
+.quote-float.gold{background:linear-gradient(135deg,#fffdf0,#fef9e0);border-color:#e8d878;}
+.quote-float.gold::before{color:#f0e8a0;}
+.q-icon{font-size:2rem;flex-shrink:0;}
+.q-msg{font-family:'Dancing Script',cursive;font-size:1.05rem;color:var(--ink2);font-weight:700;line-height:1.45;}
+.q-msg span{font-family:'Nunito',sans-serif;font-size:.75rem;color:var(--ink3);font-weight:600;display:block;margin-top:3px;}
+
+.progress-reminder{background:linear-gradient(135deg,#d8f4ec,#e8f8f2);border-radius:18px;padding:20px;margin:20px 0 0;border:1.5px solid #a0ddc8;display:flex;flex-direction:column;gap:10px;}
+.pr-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--teal-d);display:flex;align-items:center;gap:7px;}
+.pr-items{display:flex;flex-wrap:wrap;gap:8px;}
+.pr-item{background:rgba(255,255,255,.7);border:1px solid #a0ddc8;border-radius:20px;padding:5px 13px;font-size:.78rem;color:var(--teal-d);font-weight:700;display:flex;align-items:center;gap:5px;}
+
+.footer{background:linear-gradient(135deg,#7a1a3a,#b03060);color:rgba(255,255,255,.75);padding:36px 24px 20px;}
+.footer-inner{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+@media(max-width:540px){.footer-inner{grid-template-columns:1fr;}}
+.footer-clinic h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#fff;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.footer-clinic p{font-size:.78rem;color:rgba(255,255,255,.7);line-height:1.75;}
+.footer-clinic a{color:rgba(255,255,255,.85);text-decoration:none;}
+.footer-credits{display:flex;flex-direction:column;gap:10px;}
+.credit-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px 16px;}
+.credit-label{font-size:.65rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;}
+.credit-value{font-family:'Dancing Script',cursive;font-size:1.15rem;color:#f7b8ca;font-weight:700;}
+.credit-sub{font-size:.72rem;color:rgba(255,255,255,.55);margin-top:2px;}
+.footer-divider{max-width:880px;margin:20px auto 0;border:none;border-top:1px solid rgba(255,255,255,.12);}
+.footer-bottom{max-width:880px;margin:12px auto 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-hearts{font-size:1rem;letter-spacing:4px;}
+.footer-disc{font-size:.68rem;color:rgba(255,255,255,.35);}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hdeco d1">🌸</div><div class="hdeco d2">🌺</div>
+  <div class="hdeco d3">✨</div><div class="hdeco d4">🌷</div>
+  <div class="hero-pill">💕 Made with love for my lovely girls</div>
+  <h1>Your <em>Glow-Up</em><br>Diet Guide 🌸</h1>
+  <p class="hero-sub">PCOD · Thyroid · Hormone Balance · Feel Beautiful Inside Out</p>
+  <div class="hero-hearts">🌸 ✨ 💕 ✨ 🌸</div>
+</div>
+
+<div class="aff-banner">
+  <div class="aff-text">Your body is not the problem. It just needs a little more love &amp; the right food 🌸</div>
+  <div class="aff-sub">You are stronger than your cravings, smarter than your hormones, and more beautiful than you know 💕</div>
+</div>
+
+<div class="page">
+  <div class="sec-title">💬 Your Questions, Answered</div>
+  <p class="q-hint">✨ Tap any question below, bestie!</p>
+
+  <div class="q-grid">
+    <button class="q-btn" data-q="1" onclick="toggleQ(1)">
+      <div class="q-badge" style="background:#fde8ef;color:#c95a78;">1</div>
+      <div class="q-label">What to eat? 🥗</div>
+      <span class="q-caret">▾</span>
+    </button>
+    <button class="q-btn" data-q="2" onclick="toggleQ(2)">
+      <div class="q-badge" style="background:#ffebee;color:#b71c1c;">2</div>
+      <div class="q-label">What NOT to eat? 🚫</div>
+      <span class="q-caret">▾</span>
+    </button>
+    <button class="q-btn" data-q="3" onclick="toggleQ(3)">
+      <div class="q-badge" style="background:#fef9d0;color:#8a6800;">3</div>
+      <div class="q-label">Which rice? 🍚</div>
+      <span class="q-caret">▾</span>
+    </button>
+    <button class="q-btn" data-q="4" onclick="toggleQ(4)">
+      <div class="q-badge" style="background:#ede0f7;color:#6a35a0;">4</div>
+      <div class="q-label">Protein intake? 💪</div>
+      <span class="q-caret">▾</span>
+    </button>
+    <button class="q-btn" data-q="5" onclick="toggleQ(5)">
+      <div class="q-badge" style="background:#d8f4ec;color:#2d7055;">5</div>
+      <div class="q-label">Grocery &amp; cravings? 🛒</div>
+      <span class="q-caret">▾</span>
+    </button>
+  </div>
+
+  <div class="q-panel" id="panel-1">
+    <div class="panel-box" style="background:#fff8fb;border-color:#f7b8ca;">
+      <span class="bg-deco">🥗</span>
+      <div class="panel-heading" style="color:#c95a78;">💚 What to Eat — Hormone-Happy Foods</div>
+      <div class="chips">
+        <span class="chip green">🫘 Dal every meal</span><span class="chip green">🥬 Palak &amp; Methi</span>
+        <span class="chip green">🍚 Brown rice (¼ cup)</span><span class="chip green">🥚 Eggs</span>
+        <span class="chip green">🐟 Fish</span><span class="chip green">🍗 Chicken (not fried)</span>
+        <span class="chip pink">🫐 Berries &amp; Papaya</span><span class="chip pink">🥛 Curd &amp; Buttermilk</span>
+        <span class="chip lav">🎃 Pumpkin Seeds</span><span class="chip lav">🥜 Walnuts</span>
+        <span class="chip peach">🌱 Flaxseeds</span><span class="chip lemon">💛 Turmeric</span>
+        <span class="chip green">🌾 Jowar &amp; Bajra</span><span class="chip green">🧄 Garlic &amp; Ginger</span>
+      </div>
+      <div class="duo">
+        <div class="mini-box">
+          <div class="mini-title" style="color:#2d9070;">🥗 Best Vegetables</div>
+          <ul>
+            <li>Palak — iron + calcium for PCOD</li>
+            <li>Methi — lowers insulin resistance</li>
+            <li>Lauki — near zero calories, fills up</li>
+            <li>Bhindi — fiber, helps blood sugar</li>
+            <li>Gobhi (cooked) — anti-inflammatory</li>
+          </ul>
+        </div>
+        <div class="mini-box">
+          <div class="mini-title" style="color:#2d9070;">🍲 Dal &amp; Legumes</div>
+          <ul>
+            <li>Moong dal — easiest to digest</li>
+            <li>Masoor dal — iron + folate</li>
+            <li>Chana dal — best for blood sugar</li>
+            <li>Rajma — complete protein with rice</li>
+            <li>Sprouted moong — raw superfood</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout green">💡 <span><strong>Golden rule:</strong> Fill 40% with sabzi + salad FIRST. Then dal. Then a tiny scoop of rice. Never eat rice alone!</span></div>
+      <div class="cute-strip">🥦 <div class="cute-strip-text">Every veggie you eat is a love letter to your hormones. They WILL write back! 💌</div></div>
+    </div>
+  </div>
+
+  <div class="q-panel" id="panel-2">
+    <div class="panel-box" style="background:#fff5f8;border-color:#f7c0cc;">
+      <span class="bg-deco">🚫</span>
+      <div class="panel-heading" style="color:#b71c1c;">🚫 What NOT to Eat — Strictly Avoid These</div>
+      <div class="chips">
+        <span class="chip red">🍬 Sugar &amp; Sweets</span><span class="chip red">🍞 Maida</span>
+        <span class="chip red">📦 Packaged Food</span><span class="chip red">🥛 Excess Dairy</span>
+        <span class="chip red">🌱 Soya (excess)</span><span class="chip red">🍺 Alcohol</span>
+        <span class="chip red">🥤 Cold Drinks</span><span class="chip red">🍟 Fried Food</span>
+        <span class="chip red">☕ Coffee near medicine</span>
+      </div>
+      <div class="duo">
+        <div class="mini-box">
+          <div class="mini-title" style="color:#b71c1c;">Why Sugar Is Enemy #1</div>
+          <ul>
+            <li>Causes sharp insulin spikes</li>
+            <li>Feeds androgen production</li>
+            <li>Promotes belly weight gain</li>
+            <li>Disrupts your period cycle</li>
+            <li>Switch to tiny jaggery or skip</li>
+          </ul>
+        </div>
+        <div class="mini-box">
+          <div class="mini-title" style="color:#b71c1c;">Why Limit Regular Dairy</div>
+          <ul>
+            <li>Regular milk has growth hormones</li>
+            <li>Can raise androgens in PCOD</li>
+            <li>Curd &amp; buttermilk = OKAY ✅</li>
+            <li>Switch to almond or oat milk</li>
+            <li>Small paneer 2–3x/week fine</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout pink">⚠️ <span><strong>Soya alert:</strong> Soya mimics estrogen. For PCOD &amp; thyroid girls, daily soya disrupts already imbalanced hormones. Occasional use okay, not daily!</span></div>
+      <div class="cute-strip">✨ <div class="cute-strip-text">Saying no to sugar is saying yes to yourself. You've got this, queen! 👑</div></div>
+    </div>
+  </div>
+
+  <div class="quote-float teal">
+    <div class="q-icon">🌿</div>
+    <div class="q-msg">Healing is not linear. Some days you'll nail it, some days you won't. Both are okay. What matters is you keep going 🌱 <span>— Dr. Divya Ahir, Medicare Clinic</span></div>
+  </div>
+
+  <div class="q-panel" id="panel-3">
+    <div class="panel-box" style="background:#fffdf5;border-color:#f0e0a0;">
+      <span class="bg-deco">🍚</span>
+      <div class="panel-heading" style="color:#d4a840;">🍚 Which Rice? The Real Talk</div>
+      <div class="compare">
+        <div class="c-yes"><h4>✅ Pick These</h4>
+          <ul>
+            <li>🌾 <span><strong>Brown rice</strong> — more fiber, lower GI</span></li>
+            <li>🌾 <span><strong>Hand-pounded rice</strong> — less processed</span></li>
+            <li>🌾 <span><strong>Red / Matta rice</strong> — antioxidant-rich</span></li>
+            <li>🌾 <span>¼ cup white rice — always with dal</span></li>
+          </ul>
+        </div>
+        <div class="c-no"><h4>❌ Limit These</h4>
+          <ul>
+            <li>🍚 <span>Large plate white rice alone</span></li>
+            <li>🍚 <span>Polished basmati in big portions</span></li>
+            <li>🍚 <span>Rice alone at dinner</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout lemon">💡 <span><strong>Real talk:</strong> You do NOT need to quit rice! Keep it to <strong>¼ cup (20% of plate)</strong> — always with dal. Brown rice is better but small white rice + dal is fine.</span></div>
+      <div class="callout green" style="margin-top:8px;">🌾 <span><strong>Best swap:</strong> Replace white rice 3–4 days/week with <strong>khichdi</strong> — low GI, high protein, ultimate PCOD comfort meal! 🥰</span></div>
+      <div class="cute-strip">🍚 <div class="cute-strip-text">Khichdi is not boring. It's your glow-up in a bowl. Eat it with pride, babe! 🥣✨</div></div>
+    </div>
+  </div>
+
+  <div class="quote-float purple">
+    <div class="q-icon">💜</div>
+    <div class="q-msg">Your PCOD does not define you. What you eat every day does. Small choices = big results. Start today, not Monday 💜 <span>— A reminder from Dr. Divya Ahir 💕</span></div>
+  </div>
+
+  <div class="q-panel" id="panel-4">
+    <div class="panel-box" style="background:#f9f0ff;border-color:#d8b8f0;">
+      <span class="bg-deco">💪</span>
+      <div class="panel-heading" style="color:#7a50a8;">💪 Protein Intake — How Much &amp; From Where</div>
+      <div class="callout lav">🎯 <span>For a 20-year-old girl with PCOD: aim for <strong>55–70g protein/day</strong>. Protein balances hormones, reduces cravings, supports thyroid &amp; keeps you glowy 💕</span></div>
+      <div style="margin:15px 0;">
+        <div style="font-size:.8rem;color:#6b445a;margin-bottom:10px;font-weight:700;">Protein in everyday Indian foods:</div>
+        <div class="pb-item"><div class="pb-lbl"><span>🥚 2 boiled eggs</span><span style="color:#c95a78;font-weight:800;">12g</span></div><div class="pb-track"><div class="pb-fill" style="width:70%;animation-delay:.1s"></div></div></div>
+        <div class="pb-item"><div class="pb-lbl"><span>🫘 1 cup moong dal (cooked)</span><span style="color:#c95a78;font-weight:800;">9g</span></div><div class="pb-track"><div class="pb-fill" style="width:52%;animation-delay:.2s"></div></div></div>
+        <div class="pb-item"><div class="pb-lbl"><span>🍗 100g chicken breast</span><span style="color:#c95a78;font-weight:800;">27g</span></div><div class="pb-track"><div class="pb-fill" style="width:90%;animation-delay:.3s"></div></div></div>
+        <div class="pb-item"><div class="pb-lbl"><span>🐟 100g fish</span><span style="color:#c95a78;font-weight:800;">22g</span></div><div class="pb-track"><div class="pb-fill" style="width:80%;animation-delay:.4s"></div></div></div>
+        <div class="pb-item"><div class="pb-lbl"><span>🥛 ½ cup curd</span><span style="color:#c95a78;font-weight:800;">5g</span></div><div class="pb-track"><div class="pb-fill" style="width:30%;animation-delay:.5s"></div></div></div>
+        <div class="pb-item"><div class="pb-lbl"><span>🌱 1 cup sprouted moong</span><span style="color:#c95a78;font-weight:800;">7g</span></div><div class="pb-track"><div class="pb-fill" style="width:40%;animation-delay:.6s"></div></div></div>
+      </div>
+      <div class="duo">
+        <div class="mini-box">
+          <div class="mini-title" style="color:#7a50a8;">🌿 Vegetarian Sources</div>
+          <ul><li>Dal every meal — non-negotiable</li><li>Curd + buttermilk daily</li><li>Pumpkin + flaxseeds snack</li><li>Sprouted moong chaat</li><li>Small paneer 2–3x/week</li></ul>
+        </div>
+        <div class="mini-box">
+          <div class="mini-title" style="color:#7a50a8;">🥩 Non-Veg Sources</div>
+          <ul><li>2 eggs daily — best value!</li><li>Grilled or boiled chicken</li><li>Steamed or pan-fried fish</li><li>Avoid fried versions always</li><li>Fish 2–3x/week for omega-3</li></ul>
+        </div>
+      </div>
+      <div style="margin-top:18px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:#7a50a8;margin-bottom:12px;">🥤 Should You Use Protein Powder?</div>
+        <div class="callout warn" style="margin-bottom:14px;">⚠️ <span><strong>Important:</strong> Most protein powders are NOT designed for hormonal conditions. Food protein is always better than powder.</span></div>
+        <div class="powder-grid">
+          <div class="powder-card safe">
+            <h4>✅ Safer Options</h4>
+            <ul>
+              <li>Pure <strong>whey isolate</strong> — low lactose</li>
+              <li><strong>Pea protein</strong> — hormone-neutral</li>
+              <li><strong>Brown rice protein</strong> — PCOD-safe</li>
+              <li>1 scoop max/day with water</li>
+            </ul>
+          </div>
+          <div class="powder-card no">
+            <h4>🚫 Avoid These</h4>
+            <ul>
+              <li><strong>Soy protein</strong> — mimics estrogen!</li>
+              <li>Powders with <strong>added sugar</strong></li>
+              <li>Mass gainers — bad for PCOD</li>
+              <li>Any <strong>soy lecithin</strong> base powder</li>
+            </ul>
+          </div>
+        </div>
+        <div class="powder-card caution" style="margin-bottom:10px;">
+          <h4>⚠️ Caution — Don't Use Excess</h4>
+          <ul>
+            <li>Excess powder → kidney stress &amp; liver load</li>
+            <li>Too much whey → acne &amp; hormonal flare-up</li>
+            <li>If thyroid patient — consult Dr. Divya first</li>
+          </ul>
+        </div>
+        <div class="callout green">💡 <span><strong>Bottom line:</strong> If your dal + eggs + curd are regular, you likely <strong>don't need powder at all.</strong> Always check with your doctor first! 🌸</span></div>
+        <div class="cute-strip">💪 <div class="cute-strip-text">You don't need a fancy supplement. Dal, curd &amp; self-belief? That combo is unbeatable! 🫘💕</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-float gold">
+    <div class="q-icon">🌟</div>
+    <div class="q-msg">A stocked kitchen is a happy hormone. Prep your grocery list on Sunday and thank yourself all week! 🛒✨ <span>— Pro tip from Medicare Clinic</span></div>
+  </div>
+
+  <div class="q-panel" id="panel-5">
+    <div class="panel-box" style="background:#f0fdf7;border-color:#a0ddc8;">
+      <span class="bg-deco">🛒</span>
+      <div class="panel-heading" style="color:#2d9070;">🛒 Grocery List — Stock These Always, Queen!</div>
+      <div class="groc">
+        <div class="g-card"><span class="g-icon">🌾</span><div class="g-name">Rolled Oats</div><div class="g-note">Overnight oats</div></div>
+        <div class="g-card"><span class="g-icon">🥜</span><div class="g-name">Almonds &amp; Walnuts</div><div class="g-note">Snack + omega-3</div></div>
+        <div class="g-card"><span class="g-icon">🌱</span><div class="g-name">Flaxseeds &amp; Chia</div><div class="g-note">Add to oats/curd</div></div>
+        <div class="g-card"><span class="g-icon">🎃</span><div class="g-name">Pumpkin Seeds</div><div class="g-note">Zinc for hormones</div></div>
+        <div class="g-card"><span class="g-icon">🍌</span><div class="g-name">Bananas</div><div class="g-note">Quick energy</div></div>
+        <div class="g-card"><span class="g-icon">🫐</span><div class="g-name">Berries / Papaya</div><div class="g-note">Antioxidants</div></div>
+        <div class="g-card"><span class="g-icon">🥛</span><div class="g-name">Almond Milk</div><div class="g-note">Dairy-free base</div></div>
+        <div class="g-card"><span class="g-icon">🥚</span><div class="g-name">Eggs (dozen)</div><div class="g-note">Protein hero 🌟</div></div>
+        <div class="g-card"><span class="g-icon">🍵</span><div class="g-name">Cinnamon Sticks</div><div class="g-note">Morning water</div></div>
+        <div class="g-card"><span class="g-icon">🌿</span><div class="g-name">Methi Seeds</div><div class="g-note">Soak overnight</div></div>
+        <div class="g-card"><span class="g-icon">🫘</span><div class="g-name">Makhana</div><div class="g-note">Guilt-free snack</div></div>
+        <div class="g-card"><span class="g-icon">🥛</span><div class="g-name">Low-fat Curd</div><div class="g-note">Daily probiotic</div></div>
+      </div>
+      <div class="callout lav">🥤 <span><strong>Craving buster:</strong> Drink 1 glass <strong>buttermilk with jeera + rock salt</strong>, or grab <strong>makhana + walnuts</strong>. Cravings vanish in 10 min! 💕</span></div>
+      <div class="cute-strip">🛒 <div class="cute-strip-text">Stocking healthy food is an act of self-love. Future you is already saying thank you! 🥰</div></div>
+    </div>
+  </div>
+
+  <div class="plate-section">
+    <div class="plate-title">🍽️ Your Ideal Plate Ratio</div>
+    <p class="plate-sub">Fill your plate like this every meal, gorgeous 💕</p>
+    <div class="plate-layout">
+      <div class="pie-wrap">
+        <div class="pie-container">
+          <div class="pie-outer-ring"></div>
+          <svg class="pie-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gS" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f0a0b8"/><stop offset="100%" stop-color="#c95a78"/></linearGradient>
+              <linearGradient id="gD" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c8a0e8"/><stop offset="100%" stop-color="#7a50a8"/></linearGradient>
+              <linearGradient id="gR" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#80d8b8"/><stop offset="100%" stop-color="#2d9070"/></linearGradient>
+              <linearGradient id="gC" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbc8a0"/><stop offset="100%" stop-color="#e8805a"/></linearGradient>
+              <filter id="sh"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.18"/></filter>
+            </defs>
+            <path d="M 110 110 L 110 20 A 90 90 0 0 1 162.9 182.8 Z" fill="url(#gS)" filter="url(#sh)"/>
+            <path d="M 110 110 L 162.9 182.8 A 90 90 0 0 1 24.4 137.8 Z" fill="url(#gD)" filter="url(#sh)"/>
+            <path d="M 110 110 L 24.4 137.8 A 90 90 0 0 1 57.1 37.2 Z" fill="url(#gR)" filter="url(#sh)"/>
+            <path d="M 110 110 L 57.1 37.2 A 90 90 0 0 1 110 20 Z" fill="url(#gC)" filter="url(#sh)"/>
+            <line x1="110" y1="110" x2="110" y2="20" stroke="white" stroke-width="2.5" opacity="0.7"/>
+            <line x1="110" y1="110" x2="162.9" y2="182.8" stroke="white" stroke-width="2.5" opacity="0.7"/>
+            <line x1="110" y1="110" x2="24.4" y2="137.8" stroke="white" stroke-width="2.5" opacity="0.7"/>
+            <line x1="110" y1="110" x2="57.1" y2="37.2" stroke="white" stroke-width="2.5" opacity="0.7"/>
+            <circle cx="110" cy="110" r="42" fill="white" opacity="0.97"/>
+          </svg>
+          <div class="pie-hole"><span>🍽️</span><small>My Plate</small></div>
+        </div>
+        <div class="dinner-tag">🌙 Dinner before 8 PM — strictly!</div>
+      </div>
+      <div>
+        <div class="legend">
+          <div class="leg-item">
+            <div class="leg-swatch" style="background:linear-gradient(135deg,#f0a0b8,#c95a78);"></div>
+            <div class="leg-name">🥬 Sabzi + Salad<span class="leg-sub">Veggies first — always!</span></div>
+            <div class="leg-pct" style="color:#c95a78;">40%</div>
+          </div>
+          <div class="leg-item">
+            <div class="leg-swatch" style="background:linear-gradient(135deg,#c8a0e8,#7a50a8);"></div>
+            <div class="leg-name">🍲 Dal<span class="leg-sub">Your protein anchor</span></div>
+            <div class="leg-pct" style="color:#7a50a8;">30%</div>
+          </div>
+          <div class="leg-item">
+            <div class="leg-swatch" style="background:linear-gradient(135deg,#80d8b8,#2d9070);"></div>
+            <div class="leg-name">🍚 Rice<span class="leg-sub">Small portion, with dal</span></div>
+            <div class="leg-pct" style="color:#2d9070;">20%</div>
+          </div>
+          <div class="leg-item">
+            <div class="leg-swatch" style="background:linear-gradient(135deg,#fbc8a0,#e8805a);"></div>
+            <div class="leg-name">🥛 Curd / Banana<span class="leg-sub">Less dairy overall</span></div>
+            <div class="leg-pct" style="color:#e8935a;">10%</div>
+          </div>
+        </div>
+        <div class="bm-note">🥤 Buttermilk for cravings — always safe &amp; hormone-friendly!</div>
+      </div>
+    </div>
+    <div class="plate-rules">
+      <div class="rule-card"><div class="rule-icon">🌸</div><div class="rule-text">Veggies first, then dal, then rice</div></div>
+      <div class="rule-card"><div class="rule-icon">⏰</div><div class="rule-text">Dinner before 8 PM — strictly</div></div>
+      <div class="rule-card"><div class="rule-icon">🚫</div><div class="rule-text">Never eat rice alone — always with dal</div></div>
+      <div class="rule-card"><div class="rule-icon">💧</div><div class="rule-text">2.5–3 litres of water daily</div></div>
+    </div>
+  </div>
+
+  <div class="seeds-wrap">
+    <div class="sec-title">🌸 Seeds &amp; Spices — Your Hormone Helpers!</div>
+    <div class="seed-pills">
+      <div class="s-pill">🌱 Flaxseeds</div>
+      <div class="s-pill">🌿 Methi Seeds</div>
+      <div class="s-pill">🍵 Cinnamon Water</div>
+      <div class="s-pill">🥜 Walnuts</div>
+      <div class="s-pill">🎃 Pumpkin Seeds</div>
+      <div class="s-pill">💛 Turmeric</div>
+      <div class="s-pill">🫐 Berries</div>
+    </div>
+  </div>
+
+  <div class="sec-title">🚫 Strictly Avoid These, Beautiful</div>
+  <div class="no-grid">
+    <div class="no-card"><div class="no-e">🍬</div><div><div class="no-t">Sugar &amp; Sweets</div><div class="no-s">Spikes insulin, worsens hormones</div></div></div>
+    <div class="no-card"><div class="no-e">🍞</div><div><div class="no-t">Maida / White Flour</div><div class="no-s">High GI, causes inflammation</div></div></div>
+    <div class="no-card"><div class="no-e">📦</div><div><div class="no-t">Packaged Food</div><div class="no-s">Artificial hormones &amp; bad fats</div></div></div>
+    <div class="no-card"><div class="no-e">🥛</div><div><div class="no-t">Excess Dairy (milk)</div><div class="no-s">Can raise androgens in PCOD</div></div></div>
+    <div class="no-card"><div class="no-e">🌱</div><div><div class="no-t">Soya (Excess)</div><div class="no-s">Mimics estrogen, disrupts hormones</div></div></div>
+    <div class="no-card"><div class="no-e">🥤</div><div><div class="no-t">Alcohol &amp; Cold Drinks</div><div class="no-s">Liver stress, worsens PCOD</div></div></div>
+    <div class="no-card"><div class="no-e">🍟</div><div><div class="no-t">Fried Food (Excess)</div><div class="no-s">Inflammatory fats</div></div></div>
+  </div>
+
+  <div class="aff-block">
+    <div class="aff-title">💌 Daily Affirmations for You</div>
+    <div class="aff-subtitle">Read these every morning, beautiful 🌸</div>
+    <div class="aff-cards">
+      <div class="aff-card"><div class="aff-emoji">🌸</div><div><div class="aff-msg">I am healing, slowly and beautifully</div><div class="aff-note">Your body is working hard for you every single day 💕</div></div></div>
+      <div class="aff-card"><div class="aff-emoji">💪</div><div><div class="aff-msg">PCOD does not own me. I own my choices</div><div class="aff-note">Every good meal is a vote for the healthier you 🗳️</div></div></div>
+      <div class="aff-card"><div class="aff-emoji">🥗</div><div><div class="aff-msg">I choose food that loves me back</div><div class="aff-note">Dal, veggies, curd — they're on your team always 🫘</div></div></div>
+      <div class="aff-card"><div class="aff-emoji">✨</div><div><div class="aff-msg">My glow-up is in progress, not pending</div><div class="aff-note">Two weeks of clean eating = you'll FEEL the difference 🌟</div></div></div>
+      <div class="aff-card"><div class="aff-emoji">🌙</div><div><div class="aff-msg">I eat early, sleep early, rise glowing</div><div class="aff-note">Dinner before 8 PM is your nighttime superpower ⏰</div></div></div>
+      <div class="aff-card"><div class="aff-emoji">💧</div><div><div class="aff-msg">My water bottle is my best friend today</div><div class="aff-note">3 litres = clearer skin + better hormones 💦</div></div></div>
+      <div class="aff-card"><div class="aff-emoji">🧘‍♀️</div><div><div class="aff-msg">Stress is my enemy. I choose calm today</div><div class="aff-note">High cortisol = worse PCOD. You deserve peace 🌿</div></div></div>
+      <div class="aff-card"><div class="aff-emoji">🏃‍♀️</div><div><div class="aff-msg">Even a 30-min walk counts. I move today</div><div class="aff-note">Walking is the best free medicine for PCOD 👟</div></div></div>
+    </div>
+  </div>
+
+  <div class="progress-reminder">
+    <div class="pr-title">🌟 What to Expect on This Journey</div>
+    <div class="pr-items">
+      <div class="pr-item">🗓️ Week 1–2 — Less bloating</div>
+      <div class="pr-item">🗓️ Week 3–4 — More energy</div>
+      <div class="pr-item">🗓️ Month 2 — Better skin</div>
+      <div class="pr-item">🗓️ Month 2–3 — Periods start regulating</div>
+      <div class="pr-item">🗓️ Month 3+ — Hormonal balance improving</div>
+      <div class="pr-item">💕 Every day — More confidence</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-clinic">
+      <h3>🌸 Medicare Clinic</h3>
+      <p>
+        <strong style="color:#fff;">Dr. Divya Ahir</strong> &nbsp;|&nbsp; Consultant Physician (BHMS)<br>
+        📞 <a href="tel:+919321737366">+91 9321737366</a><br>
+        ✉️ <a href="mailto:dr.ahirdivya051296@gmail.com">dr.ahirdivya051296@gmail.com</a><br>
+        📍 20 Futa Road, Maha Laxmi Enclave,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Karawal Nagar, Delhi-110093
+      </p>
+    </div>
+    <div class="footer-credits">
+      <div class="credit-card">
+        <div class="credit-label">Medically guided by</div>
+        <div class="credit-value">🌸 Dr. Divya Ahir, BHMS</div>
+        <div class="credit-sub">Medicare Clinic, Karawal Nagar, Delhi</div>
+      </div>
+      <div class="credit-card">
+        <div class="credit-label">Data &amp; Clinical Reference</div>
+        <div class="credit-value" style="font-size:.95rem;">📋 Medicare Clinic</div>
+        <div class="credit-sub">All dietary data reviewed by Medicare Clinic</div>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-divider">
+  <div style="max-width:880px;margin:18px auto;text-align:center;padding:0 20px;">
+    <div style="font-family:'Dancing Script',cursive;font-size:1.3rem;color:#f7b8ca;font-weight:700;line-height:1.6;">
+      To every girl reading this — you are not broken. You are blooming. 🌸<br>
+      <span style="font-size:1rem;color:rgba(255,255,255,.55);font-family:'Nunito',sans-serif;font-weight:400;">It takes time to bloom. Water yourself with good food, sleep &amp; kindness every single day.</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-hearts">🌸 💕 ✨ 💕 🌸</span>
+    <span class="footer-disc">⚠️ General guidance only — consult Dr. Divya Ahir for personalised medical advice.</span>
+  </div>
+</div>
+
+<script>
+let open = null;
+function toggleQ(n) {
+  const panel = document.getElementById('panel-' + n);
+  const btn = document.querySelector('[data-q="' + n + '"]');
+  if (open && open !== n) {
+    document.getElementById('panel-' + open).classList.remove('open');
+    document.querySelector('[data-q="' + open + '"]').classList.remove('active');
+  }
+  if (open === n) {
+    panel.classList.remove('open');
+    btn.classList.remove('active');
+    open = null;
+  } else {
+    panel.classList.add('open');
+    btn.classList.add('active');
+    open = n;
+    setTimeout(() => panel.scrollIntoView({ behavior:'smooth', block:'nearest' }), 80);
+  }
+}
+</script>
+</body>
+</html>
